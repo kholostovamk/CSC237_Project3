@@ -31,19 +31,15 @@ void outputHelpText() {
 
 //Output Inventory Data to File
 
-void outputToFile() {
-    ifstream inputFile;
-	ofstream outputFile;
-	string inputFileName;
-	string outputFileName;
-
-    cout << "Enter input filename:  ";
-	getline(cin, inputFileName);
-	inputFile.open(inputFileName);
+void outputToFile(string& outputFileName, ofstream& outputFile) {
+    
+    cout << "Enter output filename:  ";
+	getline(cin, outputFileName);
+	outputFile.open(outputFileName);
 	// Check for file open error.
-	if (inputFile.fail())
+	if (outputFile.fail())
 	{
-		cout << "(line " << __LINE__ << ") Error opening file:  " << inputFileName << endl;
+		cout << "(line " << __LINE__ << ") Error opening file:  " << outputFileName << endl;
 	}
 
 

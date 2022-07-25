@@ -7,13 +7,17 @@
 using namespace std;
 
 void outputHelpText();
-void outputToFile();
+void outputToFile(string& outputFileName, ofstream& outputFile);
 bool confirmYN(string);
 
 int main()
 {
 	// Local variables for 'main' function:	
 	string command;			//	command string, input by user
+	ifstream inputFile;
+	ofstream outputFile;
+	string inputFileName;
+	string outputFileName;
 	cout << fixed << setprecision(2);
 
 
@@ -33,7 +37,7 @@ int main()
 			
 		}
 		else if (command == "h" || command == "help") {
-			outputHelpText();;
+			outputHelpText();
 		}
 		else if (command == "i" || command == "input") {
 			
@@ -42,7 +46,7 @@ int main()
 			
 		}
 		else if (command == "o" || command == "output") {
-			void outputToFile();
+			outputToFile(outputFileName, outputFile);
 		}
 		else if (command == "p" || command == "print") {
 			
