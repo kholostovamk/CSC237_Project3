@@ -1,10 +1,13 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <fstream>
+#include "InventoryItem.cpp"
 
 using namespace std;
 
 void outputHelpText();
+void outputToFile();
 bool confirmYN(string);
 
 int main()
@@ -39,7 +42,7 @@ int main()
 			
 		}
 		else if (command == "o" || command == "output") {
-			
+			void outputToFile();
 		}
 		else if (command == "p" || command == "print") {
 			
@@ -62,60 +65,7 @@ int main()
 	return 0;
 }  // (end 'main')
 
-/*____________________________________________________________________
- * Function:       outputHelpText
- * Description:    Displays a list of commands that
- *                 this program supports.
- */
-void outputHelpText() {
-	// Output help text
-	cout << "Supported commands: " << endl;
-	cout << "     a    Add parts: increase the units value for an existing inventory item." << endl;
-	cout << "     h    print Help text." << endl;
-	cout << "     i    Input inventory data from a file." << endl;
-	cout << "     n    create a New inventory Item." << endl;
-	cout << "     o    Output inventory data to a file." << endl;
-	cout << "     p    Print inventory list." << endl;
-	cout << "     q    Quit (end the program)." << endl;
-	cout << "     r    Remove parts: reduce the units value for an existing inventory item." << endl;
-}
 
-/*____________________________________________________________________
- *	Function:	 confirmYN  -	Ask user to confirm
- *  Inputs:      prompt string for user
- *  Outputs:     returns true or false.
- *  Desciption:  Ask the user to confirm their intention.
- *               Check response for 'y' or 'n', and repeat
- *               the question until the user replies correctly.
- */
-bool confirmYN(string promptText)
-{
-	string inputString;
-	bool confirmationValue = false;
-	bool inputIsOK = false;
 
-	do
-	{
-		// input from user 
-		cout << promptText;
-		getline(cin, inputString);
 
-		if (inputString == "y" || inputString == "Y")
-		{
-			confirmationValue = true;
-			inputIsOK = true;
-		}
-		else if (inputString == "n" || inputString == "N")
-		{
-			confirmationValue = false;
-			inputIsOK = true;
-		}
-		else
-		{
-			cout << "Invalid input:  " << inputString << ".  Please input y or n." << endl;
-		}
-	} while (inputIsOK == false);
-	return confirmationValue;
-
-} // (end function 'confirmYN')
 
